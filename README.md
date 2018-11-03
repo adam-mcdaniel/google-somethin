@@ -10,7 +10,7 @@ Insert this in `Cargo.toml`
 
 ```toml
 [dependencies]
-google_somethin = "0.1.0"
+google-somethin = "0.1.0"
 ```
 
 And this in your main file
