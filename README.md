@@ -1,8 +1,8 @@
 # google-somethin
 A simple library that grabs Google search results... 
 
-[![google-signin on crates.io](https://img.shields.io/crates/v/google-somethin.svg)](https://crates.io/crates/google-signin)
-[![google-signin on docs.rs](https://docs.rs/google-somethin/badge.svg)](https://docs.rs/google-signin)
+[![google-signin on crates.io](https://img.shields.io/crates/v/google-somethin.svg)](https://crates.io/crates/google-somethin)
+[![google-signin on docs.rs](https://docs.rs/google-somethin/badge.svg)](https://docs.rs/google-somethin)
 
 ## Usage
 
