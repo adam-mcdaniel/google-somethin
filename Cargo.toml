@@ -9,6 +9,7 @@ documentation = "https://docs.rs/google-somethin"
 keywords = ["google", "search", "scraper"]
 authors = ["GitStonic <kingstonicthe1@gmail.com>"]
 edition = "2018"
+include = ["**/*.rs", "Cargo.toml"]
 
 [dependencies]
 select = "0.4.2"
