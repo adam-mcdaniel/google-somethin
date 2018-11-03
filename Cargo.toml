@@ -1,0 +1,16 @@
+[package]
+name = "google-somethin"
+version = "0.1.0"
+description = "A simple library that grabs Google search results..."
+readme = "README.md"
+license = "MIT"
+repository = "https://github.com/GitStonic/google-somethin"
+documentation = "https://docs.rs/google-somethin"
+keywords = ["google", "search", "scraper"]
+authors = ["GitStonic <kingstonicthe1@gmail.com>"]
+edition = "2018"
+
+[dependencies]
+select = "0.4.2"
+scraper = "0.8.1"
+reqwest = "0.9.4"
