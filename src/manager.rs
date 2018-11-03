@@ -51,17 +51,19 @@ impl GoogleClient {
 
         for node in document.find(Attr("id", "ires").descendant(Class("bkWMgd"))) {
             for elms in node.find(Class("r").descendant(Name("a"))) {
-                let title = elms.text();
+                let mut title = elms.text();
                 let link = elms.attr("href").unwrap();
 
-                if link.starts_with("http://") || link.starts_with("https://") && title != "Cached"
+                if (link.starts_with("http://") || link.starts_with("https://")) && title != "Cached" 
                 {
+                    title = title.replace(link, "");
                     results.push(ValueConstructor {
-                        title: elms.text(),
+                        title,
                         link: link.to_string(),
                     })
+                } else {
+                    continue;
                 }
-                continue;
             }
         }
 
