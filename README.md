@@ -3,6 +3,7 @@ A simple library that grabs Google search results...
 
 [![google-signin on crates.io](https://img.shields.io/crates/v/google-somethin.svg)](https://crates.io/crates/google-somethin)
 [![google-signin on docs.rs](https://docs.rs/google-somethin/badge.svg)](https://docs.rs/google-somethin)
+[![Build Status](https://travis-ci.com/GitStonic/google-somethin.svg?branch=master)](https://travis-ci.com/GitStonic/google-somethin)
 
 ## Usage
 
