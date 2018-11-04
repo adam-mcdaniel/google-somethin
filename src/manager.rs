@@ -85,7 +85,7 @@ impl GoogleClient {
 
         if log_to_console == true {
             for result in results.clone() {
-                println!("Title : {}\nLink : {}", result.title, result.link);
+                println!("Title : {} | Link : {}", result.title, result.link);
             }
         }
 

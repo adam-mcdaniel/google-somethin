@@ -35,12 +35,29 @@ pub struct Options {
 /// # Examples
 /// 
 /// ```rust
-/// let results = google_somethin::google("minecraft", Some(Options { limit: 1, log_to_console: false }));
+/// use google_somethin::{google, Options};
+/// let results = google("minecraft", Some(Options { limit: 1, log_to_console: false }));
 /// println!("Title : {}\nLink : {}", results[0].title, results[0].link);
 /// ```
 pub fn google(query: &str, options: Option<Options>) -> Vec<ValueConstructor> {
     match options {
         Some(opts) => GoogleClient::new().return_sections(query, opts.limit, opts.log_to_console),
         None => GoogleClient::new().return_sections(query, 10, false),
+    }
+}
+
+#[cfg(test)]
+mod google_somethin_tests {
+    use super::*;
+    #[test] 
+    fn google_title() {
+        let results = google("minecraft", None);
+        assert_eq!("Minecraft: Official site", results[0].title);
+    }
+
+    #[test]
+    fn google_link() {
+        let results = google("minecraft", None);
+        assert_eq!("https://minecraft.net/", results[0].link);
     }
 }
