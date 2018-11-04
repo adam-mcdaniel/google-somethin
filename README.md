@@ -36,9 +36,9 @@ println!("Roblox results! {:?}", results);
 ```
 
 ## Reminders
-Just to verify again `ValueConstructor` to those who was wondering is only a `struct` with keys of `title` and `link`.
+Just to verify again `Section` to those who was wondering is only a `struct` with keys of `title` and `link`.
 ```rust
-ValueConstructor {
+Section {
     title: String,
     link: String,
 } 
