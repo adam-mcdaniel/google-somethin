@@ -36,14 +36,6 @@ fn log_to_console(sections: Vec<Section>) {
     }
 }
 
-fn is_link(input: String) -> bool {
-    if input.starts_with("https") || input.starts_with("http") {
-        true
-    } else {
-        false
-    }
-}
-
 pub fn return_results(query: &str, log: bool, limit: u32) -> Vec<Section> {
     let request_string = format!(
         "https://www.google.com/search?q={}&gws_rd=ssl&num={}",
@@ -59,16 +51,12 @@ pub fn return_results(query: &str, log: bool, limit: u32) -> Vec<Section> {
     for node in document.find(
         Attr("id", "ires")
             .descendant(Class("bkWMgd"))
-            .descendant(Class("rc"))
+            .descendant(Class("r"))
             .descendant(Name("a")),
     ) {
-        let mut title = node.text();
         let link = node.attr("href").unwrap();
-        if !is_link(link.to_string()) || title == "Cached" {
-            continue;
-        } else {
-            title = title.replace(link, "");
-            sections.push(grab_section(title, link.to_string()))
+        for new_node in node.find(Class("LC20lb")) {
+            sections.push(grab_section(new_node.text(), link.to_string()))
         }
     }
 
