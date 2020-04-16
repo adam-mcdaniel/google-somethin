@@ -12,7 +12,7 @@ pub struct Section {
     pub title: String,
 }
 
-fn grab_body(url: &str) -> String {
+async fn grab_body(url: &str) -> String {
     Client::new()
         .get(url)
         .header(
@@ -20,8 +20,10 @@ fn grab_body(url: &str) -> String {
             "Mozilla/5.0 (Macintosh; Intel Mac OS X 10.10; rv:34.0) Gecko/20100101 Firefox/34.0",
         )
         .send()
+        .await
         .unwrap()
         .text()
+        .await
         .unwrap()
 }
 
@@ -36,7 +38,7 @@ fn log_to_console(sections: Vec<Section>) {
     }
 }
 
-pub fn return_results(query: &str, log: bool, limit: u32) -> Vec<Section> {
+pub async fn return_results(query: &str, log: bool, limit: u32) -> Vec<Section> {
     let request_string = format!(
         "https://www.google.com/search?q={}&gws_rd=ssl&num={}",
         query, limit
@@ -44,7 +46,7 @@ pub fn return_results(query: &str, log: bool, limit: u32) -> Vec<Section> {
 
     let body = grab_body(request_string.as_str());
 
-    let document = Document::from(body.as_str());
+    let document = Document::from(body.await.as_str());
 
     let mut sections: Vec<Section> = Vec::new();
 
