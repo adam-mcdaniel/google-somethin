@@ -39,11 +39,12 @@ pub struct Options {
 /// let results = google("minecraft", Some(Options { limit: 1, log_to_console: false }));
 /// println!("Title : {}\nLink : {}", results[0].title, results[0].link);
 /// ```
-pub async fn google(query: &str, options: Option<Options>) -> Vec<Section> {
-    match options {
-        Some(opts) => return_results(query, opts.log_to_console, opts.limit).await,
-        None => return_results(query, false, 10).await,
-    }
+pub fn google(query: &str, options: Option<Options>) -> Vec<Section> {
+    use futures::executor::block_on;
+    block_on(match options {
+        Some(opts) => return_results(query, opts.log_to_console, opts.limit),
+        None => return_results(query, false, 10),
+    })
 }
 
 #[cfg(test)]
