@@ -1,6 +1,6 @@
 [package]
 name = "google-somethin"
-version = "0.1.4"
+version = "0.1.5"
 description = "A simple library that grabs Google search results..."
 readme = "README.md"
 license = "MIT"
